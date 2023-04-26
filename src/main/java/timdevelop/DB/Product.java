@@ -1,19 +1,25 @@
 package timdevelop.DB;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
+    @NotNull(message = "id cannot be null")
     private String id;
+
     private String name;
+
     private int price;
 
-    public Product() {
-
-    }
-
-    public Product(String id, String name, int price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-    }
+    // valid description
+    @Valid
+    private Description description;
 
     public String getId(){
         return this.id;

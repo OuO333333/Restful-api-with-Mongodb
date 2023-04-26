@@ -47,13 +47,13 @@ public class ServiceLayer {
     }
 
     // @PostConstruct
-    public void initDB() {
-        System.out.println("---initialize database---");
-        userRepository.save(new Product("B0001", "Android Development (Java)", 380));
-        userRepository.save(new Product("B0002", "Android Development (Kotlin)", 420));
-        userRepository.save(new Product("B0003", "Data Structure (Java)", 250));
-        userRepository.save(new Product("B0004", "Finance Management", 450));
-        userRepository.save(new Product("B0005", "Human Resource Management", 330));
-    }
+    // public void initDB() {
+    //     System.out.println("---initialize database---");
+    //     userRepository.save(new Product("B0001", "Android Development (Java)", 380));
+    //     userRepository.save(new Product("B0002", "Android Development (Kotlin)", 420));
+    //     userRepository.save(new Product("B0003", "Data Structure (Java)", 250));
+    //     userRepository.save(new Product("B0004", "Finance Management", 450));
+    //     userRepository.save(new Product("B0005", "Human Resource Management", 330));
+    // }
 
 }

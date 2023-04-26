@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import jakarta.validation.Valid;
 import timdevelop.DB.Product;
 import timdevelop.Service.*;
 
@@ -50,7 +53,7 @@ public class ControllerLayer {
     public ResponseEntity<List<Product>> getAllProduct() {
         System.out.println("In GetMapping");
         List<Product> productList = new ArrayList<Product>();
-        for(int i = 0; i < serviceLayer.getDbSize(); i++)
+        for (int i = 0; i < serviceLayer.getDbSize(); i++)
             productList.add(serviceLayer.getProduct(i));
         return ResponseEntity.ok().body(productList);
     }
@@ -59,8 +62,14 @@ public class ControllerLayer {
     // if exist, return UNPROCESSABLE_ENTITY
     // if not exist, create URL location and return request product
     @PostMapping("/products")
-    public ResponseEntity<Product> createProduct(@RequestBody Product request) {
+    public ResponseEntity<Product> createProduct(@Valid @RequestBody Product request, BindingResult result) {
         System.out.println("In PostMapping");
+        if (result.hasErrors()) {
+            List<ObjectError> errorList = result.getAllErrors();
+            for (ObjectError error : errorList) {
+                System.out.println(error);
+            }
+        }
         boolean isIdDuplicated;
         isIdDuplicated = false;
         // Integer productNum = 0;
@@ -94,8 +103,14 @@ public class ControllerLayer {
     // if exist, return modified product
     @PutMapping("/products/{id}")
     public ResponseEntity<Product> replaceProduct(
-            @PathVariable("id") String id, @RequestBody Product request) {
+            @PathVariable("id") String id,@Valid @RequestBody Product request, BindingResult result) {
         System.out.println("In PutMapping");
+        if (result.hasErrors()) {
+            List<ObjectError> errorList = result.getAllErrors();
+            for (ObjectError error : errorList) {
+                System.out.println(error);
+            }
+        }
         boolean findProduct;
         findProduct = false;
         Integer productNum = 0;
