@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.tim.common.entity.Product;
-import com.tim.service.service.ServiceLayer;
+import com.tim.service.service.ProductService;
 
 import jakarta.validation.Valid;
 
@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 public class ControllerLayer {
 
     @Autowired
-    ServiceLayer serviceLayer;
+    ProductService serviceLayer;
 
     // find Product, if exist, return ok & product
     // if not exist, return not found

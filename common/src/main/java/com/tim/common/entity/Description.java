@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Description {
-    @NotNull(message = "mainDescription cammot be null")
+    // if Description is not null, mainDescription cannot be null
+    @NotNull(message = "mainDescription cannot be null")
     private String mainDescription;
     private String contentDescription;
 }

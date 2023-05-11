@@ -7,6 +7,6 @@ import com.tim.common.entity.Product;
 
 
 @Repository
-public interface DAOlayer extends MongoRepository<Product, String> {
+public interface ProductDAO extends MongoRepository<Product, String> {
 
 }

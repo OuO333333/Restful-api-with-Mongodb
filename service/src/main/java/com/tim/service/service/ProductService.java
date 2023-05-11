@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tim.common.entity.Product;
-import com.tim.dao.dao.DAOlayer;
+import com.tim.dao.dao.ProductDAO;
 
 
 @Service
-public class ServiceLayer {
+public class ProductService {
 
     @Autowired
-    DAOlayer userRepository;
+    ProductDAO userRepository;
 
     public List<Product> getDB() {
         return userRepository.findAll();
@@ -46,15 +46,5 @@ public class ServiceLayer {
     public void removeProduct(int num) {
         userRepository.deleteById(userRepository.findAll().get(num).getId());
     }
-
-    // @PostConstruct
-    // public void initDB() {
-    //     System.out.println("---initialize database---");
-    //     userRepository.save(new Product("B0001", "Android Development (Java)", 380));
-    //     userRepository.save(new Product("B0002", "Android Development (Kotlin)", 420));
-    //     userRepository.save(new Product("B0003", "Data Structure (Java)", 250));
-    //     userRepository.save(new Product("B0004", "Finance Management", 450));
-    //     userRepository.save(new Product("B0005", "Human Resource Management", 330));
-    // }
 
 }
