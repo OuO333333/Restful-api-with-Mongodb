@@ -1,0 +1,14 @@
+# FROM maven:3.8.7-eclipse-temurin-19
+FROM ubuntu:20.04
+
+# Set build directory
+WORKDIR /root
+
+SHELL ["/bin/bash", "-c"]
+# install jdk19 & maven:3.8.7
+RUN apt-get update \
+	&& apt-get install zip unzip curl vim -y \
+	&& curl -s "https://get.sdkman.io" | bash \
+	&& source /root/.sdkman/bin/sdkman-init.sh \
+	&& sdk install maven 3.8.7 \
+	&& sdk install java 19.0.2-open

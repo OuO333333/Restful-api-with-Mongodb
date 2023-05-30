@@ -1,0 +1,16 @@
+# FROM maven:3.8.7-eclipse-temurin-19
+FROM ubuntu-20.04
+
+# Set build directory
+WORKDIR /Restful-api-with-Mongodb
+
+# add files
+# according to .dockerignore
+COPY . /Restful-api-with-Mongodb
+
+COPY build.sh run.sh /bin
+
+SHELL ["/bin/bash", "-c"]
+
+RUN source /root/.sdkman/bin/sdkman-init.sh \
+	&& sh build.sh

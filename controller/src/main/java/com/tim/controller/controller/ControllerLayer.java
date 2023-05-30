@@ -34,7 +34,7 @@ public class ControllerLayer {
     // if not exist, return not found
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable("id") String id) {
-        System.out.println("In GetMapping");
+        System.out.println("---In GetMapping---");
         boolean findProduct;
         findProduct = false;
         Integer productNum = 0;
@@ -53,7 +53,7 @@ public class ControllerLayer {
     // find all Product
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getAllProduct() {
-        System.out.println("In GetMapping");
+        System.out.println("---In GetMapping---");
         List<Product> productList = new ArrayList<>();
         for (int i = 0; i < serviceLayer.getDbSize(); i++)
             productList.add(serviceLayer.getProduct(i));
@@ -65,7 +65,7 @@ public class ControllerLayer {
     // if not exist, create URL location and return request product
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@Valid @RequestBody Product request, BindingResult result) {
-        System.out.println("In PostMapping");
+        System.out.println("---In PostMapping---");
         if (result.hasErrors()) {
             List<ObjectError> errorList = result.getAllErrors();
             for (ObjectError error : errorList) {
@@ -105,7 +105,7 @@ public class ControllerLayer {
     @PutMapping("/products/{id}")
     public ResponseEntity<Product> replaceProduct(
             @PathVariable("id") String id,@Valid @RequestBody Product request, BindingResult result) {
-        System.out.println("In PutMapping");
+        System.out.println("---In PutMapping---");
         if (result.hasErrors()) {
             List<ObjectError> errorList = result.getAllErrors();
             for (ObjectError error : errorList) {
@@ -139,7 +139,7 @@ public class ControllerLayer {
     // if exist, return noContent and removerequest from DB
     @DeleteMapping("/products/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id) {
-        System.out.println("In DeleteMapping");
+        System.out.println("---In DeleteMapping---");
         boolean isRemoved = false;
         int productNum = -1;
         for (int i = 0; i < serviceLayer.getDbSize(); i++) {
