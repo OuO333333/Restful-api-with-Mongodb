@@ -1,0 +1,21 @@
+version: '3'
+services:
+  Restful-api-with-Mongodb:
+    image: ubuntu-20.04-build:latest
+    build:
+      context: Restful-api-with-Mongodb
+      dockerfile: Dockerfile-ubuntu-20.04-build
+    hostname: Restful-api-with-Mongodb
+    working_dir: /Restful-api-with-Mongodb/controller/target
+#    command: tail -f /dev/null
+    command: /root/.sdkman/candidates/java/current/bin/java -jar controller-0.0.1-SNAPSHOT-exec.jar
+    ports:
+        - 3333:3333
+#    volumes:
+#      - type: bind
+#        source: ./Restful-api-with-Mongodb
+#        target: /Restful-api-with-Mongodb
+    tty: true
+    stdin_open: true
+    extra_hosts:
+        - "host.docker.internal:host-gateway"
