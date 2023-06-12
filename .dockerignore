@@ -7,6 +7,9 @@
 !service/pom.xml
 !controller/src
 !controller/pom.xml
+!coreserver/src
+!coreserver/pom.xml
+
 !pom.xml
 
 !build.sh
