@@ -14,7 +14,15 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Map<String, Object> unknownException(Exception e) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("message", e.getMessage());
+        map.put("general message", e.getMessage());
+        return map;
+    }
+
+    @ExceptionHandler(ItemNotExistsException.class)
+    @ResponseBody
+    public Map<String, Object> specificException(ItemNotExistsException e) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("spcific message", e.getMessage());
         return map;
     }
 }

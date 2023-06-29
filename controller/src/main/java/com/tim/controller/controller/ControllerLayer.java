@@ -45,13 +45,11 @@ public class ControllerLayer {
                 productNum = i;
             }
         }
-        if(findProduct == false){
+        if(!findProduct){
             throw new ItemNotExistsException("Item " + id + " not exists.");
         }
-        if (findProduct)
-            return ResponseEntity.ok().body(serviceLayer.getProduct(productNum));
         else
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok().body(serviceLayer.getProduct(productNum));
     }
 
     // find all Product
