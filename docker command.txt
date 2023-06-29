@@ -1,0 +1,32 @@
+1. build docker image: ubuntu-20.04
+# docker build -f Dockerfile-ubuntu-20.04 -t ubuntu-20.04 .
+
+2. build docker image: ubuntu-20.04-build
+# docker build -f Dockerfile-ubuntu-20.04-build -t ubuntu-20.04-build .
+
+3. build code
+# docker-compose build
+
+4. run code
+# docker-compose up -d
+
+2. start container: using linux container
+docker-compose up
+or docker-compose up -d
+
+3. go into container
+docker exec -it Restful-api-with-Mongodb-1 bash
+
+4. in Restful-api-with-Mongodb
+mvn clean install "-Dmaven.test.skip=true"
+
+5. apt-get update
+
+6. apt install vim
+
+7. in Restful-api-with-Mongodb\controller\target
+java -jar controller-0.0.1-SNAPSHOT-exec.jar
+
+8. sh build.sh
+
+9. sh run.sh
