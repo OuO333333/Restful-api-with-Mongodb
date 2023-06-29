@@ -2,6 +2,9 @@ version: '3'
 services:
   Restful-api-with-Mongodb:
     image: ubuntu-20.04-build:latest
+    container_name: Restful-api-with-Mongodb
+    depends_on:
+       - "mongodb"
     build:
       context: Restful-api-with-Mongodb
       dockerfile: Dockerfile-ubuntu-20.04-build
@@ -19,3 +22,19 @@ services:
     stdin_open: true
     extra_hosts:
         - "host.docker.internal:host-gateway"
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    command: mongod --dbpath /data/db --port 27017 --config /data/configdb/mongod.yml
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME = admin
+      - MONGO_INITDB_ROOT_PASSWORD = admin
+    volumes:
+      - type: bind
+        source: ./mongo6.0/data
+        target: /data/db
+      - type: bind
+        source: ./mongo6.0/configdb
+        target: /data/configdb

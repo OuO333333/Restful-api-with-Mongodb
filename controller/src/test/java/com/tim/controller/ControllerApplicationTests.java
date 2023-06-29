@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.tim.common.entity.Product;
+import com.tim.common.exception.ItemNotExistsException;
 import com.tim.dao.dao.ProductDAOMongoTemplate;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,5 +34,4 @@ class ControllerApplicationTests {
 		ProductDAOMongoTemplate productDAOMongoTemplate = new ProductDAOMongoTemplate();
 		productDAOMongoTemplate.insert(product);
 	}
-
 }

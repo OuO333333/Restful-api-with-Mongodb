@@ -1,5 +1,6 @@
 package com.tim.common.exception;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +13,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public Map<String, Object> unknownException(Exception e) {
-        return null;
-
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("message", e.getMessage());
+        return map;
     }
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.tim.common.entity.Product;
+import com.tim.common.exception.ItemNotExistsException;
 import com.tim.service.service.ProductService;
 
 import jakarta.validation.Valid;
@@ -33,7 +34,7 @@ public class ControllerLayer {
     // find Product, if exist, return ok & product
     // if not exist, return not found
     @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable("id") String id) {
+    public ResponseEntity<Product> getProduct(@PathVariable("id") String id) throws ItemNotExistsException {
         System.out.println("---In GetMapping---");
         boolean findProduct;
         findProduct = false;
@@ -43,6 +44,9 @@ public class ControllerLayer {
                 findProduct = true;
                 productNum = i;
             }
+        }
+        if(findProduct == false){
+            throw new ItemNotExistsException("Item " + id + " not exists.");
         }
         if (findProduct)
             return ResponseEntity.ok().body(serviceLayer.getProduct(productNum));
