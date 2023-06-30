@@ -11,9 +11,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: install tools
       run: |
-        apt-get update,
-        apt-get install zip unzip curl vim -y,
-        curl -s "https://get.sdkman.io" | bash,
-        source /root/.sdkman/bin/sdkman-init.sh,
-        sdk install maven 3.8.7,
-        sdk install java 19.0.2-open
+        apt-get update
