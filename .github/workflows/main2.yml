@@ -23,6 +23,7 @@ jobs:
         sudo -s
     - name: run sdkman
       run: |
+        sudo -s,
         sudo source /root/.sdkman/bin/sdkman-init.sh
     - name: install maven 3.8.7
       run: |
