@@ -18,3 +18,12 @@ jobs:
     - name: install sdkman
       run: |
         sudo curl -s "https://get.sdkman.io" | bash
+    - name: run sdkman
+      run: |
+        sudo source /root/.sdkman/bin/sdkman-init.sh
+    - name: install maven 3.8.7
+      run: |
+        sudo sdk install maven 3.8.7
+    - name: install java 19.0.2-open
+      run: |
+        sudo sdk install java 19.0.2-open
