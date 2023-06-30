@@ -18,9 +18,12 @@ jobs:
     - name: install sdkman
       run: |
         sudo curl -s "https://get.sdkman.io" | bash
+    - name: change bash
+      run: |
+        sudo /bin/bash -c
     - name: run sdkman
       run: |
-        sudo . /root/.sdkman/bin/sdkman-init.sh
+        sudo source /root/.sdkman/bin/sdkman-init.sh
     - name: install maven 3.8.7
       run: |
         sudo sdk install maven 3.8.7
