@@ -9,9 +9,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: update
+    - name: update apt-get
       run: |
         sudo apt-get update
     - name: install zip, unzip, curl, vim
       run: |
         sudo apt-get install zip unzip curl vim -y
+    - name: install sdkman
+      run: |
+        sudo curl -s "https://get.sdkman.io" | bash
