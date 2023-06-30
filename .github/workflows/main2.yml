@@ -21,6 +21,9 @@ jobs:
     - name: 檢視當前使用的shell
       run: |
         sudo echo $SHELL
+    - name: 檢視當前使用的shell 2
+      run: |
+        sudo ls -l /bin/sh
     - name: 檢視所有可用的shell
       run: |
         sudo cat /etc/shells
