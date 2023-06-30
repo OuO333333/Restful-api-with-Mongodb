@@ -9,7 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: install tools
+    - name: update
       run: |
-        sudo apt-get update,
+        sudo apt-get update
+    - name: install zip, unzip, curl, vim
+      run: |
         sudo apt-get install zip unzip curl vim -y
