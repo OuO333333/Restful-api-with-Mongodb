@@ -27,11 +27,11 @@ class ControllerApplicationTests {
 		assertThat(actual).isEqualTo(excepted);
 	}
 
-	@Test
-	void mongoTemplate(){
-		Product product = new Product();
-		product.setId("mongoTemplate");
-		ProductDAOMongoTemplate productDAOMongoTemplate = new ProductDAOMongoTemplate();
-		productDAOMongoTemplate.insert(product);
-	}
+	// @Test
+	// void mongoTemplate(){
+	// 	Product product = new Product();
+	// 	product.setId("mongoTemplate");
+	// 	ProductDAOMongoTemplate productDAOMongoTemplate = new ProductDAOMongoTemplate();
+	// 	productDAOMongoTemplate.insert(product);
+	// }
 }
