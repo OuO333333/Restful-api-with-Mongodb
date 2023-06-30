@@ -18,6 +18,12 @@ jobs:
     - name: install sdkman
       run: |
         sudo curl -s "https://get.sdkman.io" | bash
+    - name: 檢視當前使用的shell
+      run: |
+        sudo echo $SHELL
+    - name: 檢視所有可用的shell
+      run: |
+        sudo cat /etc/shells
     - name: change bash
       run: |
         sudo chsh -s /bin/bash
