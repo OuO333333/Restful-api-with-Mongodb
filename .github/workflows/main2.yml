@@ -20,7 +20,7 @@ jobs:
         sudo curl -s "https://get.sdkman.io" | bash
     - name: change bash
       run: |
-        sudo ls -l /bin/sh
+        sudo chsh -s /bin/bash
     - name: run sdkman
       run: |
         sudo source /root/.sdkman/bin/sdkman-init.sh
