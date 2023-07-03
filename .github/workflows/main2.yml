@@ -33,3 +33,9 @@ jobs:
     - name: run sdkman
       run: |
         source "/home/runner/.sdkman/bin/sdkman-init.sh"
+    - name: install maven 3.8.7
+      run: |
+        sdk install maven 3.8.7
+    - name: install java 19.0.2-open
+      run: |
+        sdk install java 19.0.2-open
