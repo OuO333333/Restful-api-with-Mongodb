@@ -37,12 +37,12 @@ jobs:
       run: |
         cd /home/runner/.sdkman/bin
         ls
-    - name: show sdk version
-      run: |
-        sdk version
     - name: run sdkman
       run: |
         source "/home/runner/.sdkman/bin/sdkman-init.sh"
+    - name: show sdk version
+      run: |
+        sdk version
     - name: install maven 3.8.7
       run: |
         sdk install maven 3.8.7
