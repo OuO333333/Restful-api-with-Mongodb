@@ -29,10 +29,9 @@ jobs:
         sudo cat /etc/shells
     - name: change bash
       run: |
-        sudo dpkg-reconfigure dash
-    - name: run sdkman
-      run: |
-        sudo usr/bin/source "/home/runner/.sdkman/bin"
+        dpkg-reconfigure -p critical dash
+    - name: run sdk
+        sudo source "/home/runner/.sdkman/bin"
     - name: check sdk version
       run: |
         sdk version
