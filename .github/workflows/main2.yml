@@ -37,14 +37,16 @@ jobs:
       run: |
         cd /home/runner/.sdkman/bin
         ls
+    - name: init version
+      run: |
+        with:
+        candidate: java
+        version: 19.0.2-open
     - name: run sdkman
       run: |
         source /home/runner/.sdkman/bin/sdkman-init.sh
         sdk env init
         sdk env install
-    - name: show sdk version
-      run: |
-        sdk version
     - name: install maven 3.8.7
       run: |
         sdk install maven 3.8.7
