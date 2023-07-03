@@ -39,7 +39,7 @@ jobs:
         ls
     - name: run sdkman
       run: |
-        source "/home/runner/.sdkman/bin/sdkman-init.sh"
+        source /home/runner/.sdkman/bin/sdkman-init.sh
     - name: show sdk version
       run: |
         sdk version
