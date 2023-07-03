@@ -39,6 +39,8 @@ jobs:
         ls
     - name: init version
       run: |
+        id: sdkman
+        uses: ./
         with:
         candidate: java
         version: 19.0.2-open
