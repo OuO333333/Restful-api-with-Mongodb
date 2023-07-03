@@ -27,9 +27,6 @@ jobs:
     - name: 檢視所有可用的shell
       run: |
         sudo cat /etc/shells
-    - name: change bash
-      run: |
-        dpkg-reconfigure -p critical dash
     - name: run sdkman
         sudo source "/home/runner/.sdkman/bin"
     - name: check sdk version
