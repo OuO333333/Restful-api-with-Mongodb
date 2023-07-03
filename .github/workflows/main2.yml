@@ -33,12 +33,9 @@ jobs:
       run: |
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk use maven 3.8.7
         mvn -v
-    - name: show java version
+    - name: git clone
       run: |
-        java -version
-    - name: show javac version
-      run: |
-        javac -version
-    - name: show maven version
-      run: |
-        mvn -v
+        cd /home
+        mkdir tim
+        cd tim
+        git clone git@github.com:OuO333333/Restful-api-with-Mongodb.git
