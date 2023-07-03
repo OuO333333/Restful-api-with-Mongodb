@@ -26,7 +26,7 @@ jobs:
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
     - name: change java version
       run: |
-        sdk use java 19.0.2-open
+        sudo dpkg-reconfigure -p critical dash && sdk use java 19.0.2-open
     - name: show java version
       run: |
         java -version
