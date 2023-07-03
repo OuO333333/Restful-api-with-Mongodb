@@ -33,20 +33,16 @@ jobs:
     - name: echo $HOME
       run: |
         echo $HOME
-    - name: run sdkman
+    - name: find sdkman-init.sh
       run: |
-        cd /home
+        cd /home/runner/.sdkman/bin
         ls
-        cd runner
-        ls
-        cd .sdkman
-        ls
-        cd bin
-        ls
-        source "/home/runner/.sdkman/bin/sdkman-init.sh"
     - name: show sdk version
       run: |
         sdk version
+    - name: run sdkman
+      run: |
+        source "/home/runner/.sdkman/bin/sdkman-init.sh"
     - name: install maven 3.8.7
       run: |
         sdk install maven 3.8.7
