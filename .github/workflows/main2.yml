@@ -33,6 +33,9 @@ jobs:
     - name: run sdkman
       run: |
         sudo source "/home/runner/.sdkman/bin/sdkman-init.sh"
+    - name: check sdk version
+      run: |
+        sdk version
     - name: install maven 3.8.7
       run: |
         sudo sdk install maven 3.8.7
