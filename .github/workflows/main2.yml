@@ -39,7 +39,7 @@ jobs:
         ls
     - name: install maven 3.8.7
       run: |
-        sudo source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install maven 3.8.7
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install maven 3.8.7
     - name: install java 19.0.2-open
       run: |
         sudo source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
