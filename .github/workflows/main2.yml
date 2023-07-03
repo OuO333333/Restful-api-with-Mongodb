@@ -27,14 +27,3 @@ jobs:
     - name: 檢視所有可用的shell
       run: |
         sudo cat /etc/shells
-    - name: run sdkman
-        sudo source "/home/runner/.sdkman/bin"
-    - name: check sdk version
-      run: |
-        sdk version
-    - name: install maven 3.8.7
-      run: |
-        sudo sdk install maven 3.8.7
-    - name: install java 19.0.2-open
-      run: |
-        sudo sdk install java 19.0.2-open
