@@ -18,28 +18,18 @@ jobs:
     - name: install sdkman
       run: |
         sudo curl -s "https://get.sdkman.io" | bash
-    - name: 檢視當前使用的shell
-      run: |
-        sudo echo $SHELL
-    - name: 檢視當前使用的shell 2
-      run: |
-        sudo ls -l /bin/sh
-    - name: 檢視所有可用的shell
-      run: |
-        sudo cat /etc/shells
-    - name: change shell
-      run: |
-        sudo dpkg-reconfigure -p critical dash
-    - name: echo $HOME
-      run: |
-        echo $HOME
-    - name: find sdkman-init.sh
-      run: |
-        cd /home/runner/.sdkman/bin
-        ls
     - name: install maven 3.8.7
       run: |
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install maven 3.8.7
     - name: install java 19.0.2-open
       run: |
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
+    - name: show java version
+      run: |
+        java -version
+    - name: show javac version
+      run: |
+        javac -version
+    - name: show maven version
+      run: |
+        mvn -v
