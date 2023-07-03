@@ -32,7 +32,8 @@ jobs:
         sudo dpkg-reconfigure dash
     - name: run sdkman
       run: |
-        sudo . .//home/runner/.sdkman/bin/sdkman-init.sh
+        cd /home/runner/.sdkman/bin,
+        sudo . ./sdkman-init.sh
     - name: check sdk version
       run: |
         sdk version
