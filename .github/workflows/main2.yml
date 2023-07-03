@@ -38,4 +38,4 @@ jobs:
         cd /home
         sudo mkdir tim
         cd tim
-        sudo git clone git@github.com:OuO333333/Restful-api-with-Mongodb.git
+        sudo git clone https://github.com/OuO333333/Restful-api-with-Mongodb.git
