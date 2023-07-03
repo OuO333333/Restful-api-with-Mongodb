@@ -35,14 +35,14 @@ jobs:
         echo $HOME
     - name: run sdkman
       run: |
-        cd /home,
-        ls,
-        cd runner,
-        ls,
-        cd .sdkman,
-        ls,
-        cd bin,
-        ls,
+        cd /home
+        ls
+        cd runner
+        ls
+        cd .sdkman
+        ls
+        cd bin
+        ls
         source "/home/runner/.sdkman/bin/sdkman-init.sh"
     - name: install maven 3.8.7
       run: |
