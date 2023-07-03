@@ -22,15 +22,6 @@ jobs:
     - name: install java 19.0.2-open
       run: |
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
-    - name: change java version
-      run: |
-        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk use java 19.0.2-open
-        java -version
-        javac -version
-    - name: change maven version
-      run: |
-        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk use maven 3.8.7
-        mvn -v
     - name: git clone
       run: |
         cd /home
