@@ -39,3 +39,12 @@ jobs:
         sudo mkdir tim
         cd tim
         sudo git clone https://github.com/OuO333333/Restful-api-with-Mongodb.git
+    - name: build code
+      run: |
+        cd /home/tim/Restful-api-with-Mongodb
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sh build.sh
+        
+        
+        
+        
+        
