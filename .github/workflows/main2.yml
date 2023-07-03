@@ -1,0 +1,50 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: update apt-get
+      run: |
+        sudo apt-get update
+    - name: install zip, unzip, curl, vim
+      run: |
+        sudo apt-get install zip unzip curl vim -y
+    - name: install sdkman
+      run: |
+        sudo curl -s "https://get.sdkman.io" | bash
+    - name: install maven 3.8.7
+      run: |
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install maven 3.8.7
+    - name: install java 19.0.2-open
+      run: |
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
+    - name: change java version
+      run: |
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk use java 19.0.2-open
+        java -version
+        javac -version
+    - name: change maven version
+      run: |
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sdk use maven 3.8.7
+        mvn -v
+    - name: git clone
+      run: |
+        cd /home
+        sudo mkdir tim
+        cd tim
+        sudo git clone https://github.com/OuO333333/Restful-api-with-Mongodb.git
+    - name: build code
+      run: |
+        cd /home/tim/Restful-api-with-Mongodb
+        sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sh build.sh
+        
+        
+        
+        
+        
