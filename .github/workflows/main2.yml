@@ -30,6 +30,9 @@ jobs:
     - name: change shell
       run: |
         sudo dpkg-reconfigure -p critical dash
+    - name: echo $HOME
+      run: |
+        echo $HOME
     - name: run sdkman
       run: |
         cd /home,
