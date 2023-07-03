@@ -4,9 +4,7 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-20.04
-    
     steps:
     - uses: actions/checkout@v1
     - name: update apt-get
@@ -43,7 +41,12 @@ jobs:
       run: |
         cd /home/tim/Restful-api-with-Mongodb
         sudo dpkg-reconfigure -p critical dash && source /home/runner/.sdkman/bin/sdkman-init.sh && sh build.sh
-        
+    - name: upload result
+      uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: ${{github.workspace}}//home/tim/Restful-api-with-Mongodb/controller/target/controller-0.0.1-SNAPSHOT-exec.jar
+  
         
         
         
