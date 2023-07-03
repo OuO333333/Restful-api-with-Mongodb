@@ -27,3 +27,6 @@ jobs:
     - name: 檢視所有可用的shell
       run: |
         sudo cat /etc/shells
+    - name: run sdkman
+      run: |
+        dpkg-reconfigure -p critical dash
