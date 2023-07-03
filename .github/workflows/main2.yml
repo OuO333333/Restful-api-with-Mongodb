@@ -37,15 +37,9 @@ jobs:
       run: |
         cd /home/runner/.sdkman/bin
         ls
-    - uses: sdkman/sdkman-action@v1
-      id: sdkman
-      with:
-        candidate: java
-        version: 19.0.2-open
-    - run: java -version
     - name: install maven 3.8.7
       run: |
-        sdk install maven 3.8.7
+        sudo source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install maven 3.8.7
     - name: install java 19.0.2-open
       run: |
-        sdk install java 19.0.2-open
+        sudo source /home/runner/.sdkman/bin/sdkman-init.sh && sdk install java 19.0.2-open
