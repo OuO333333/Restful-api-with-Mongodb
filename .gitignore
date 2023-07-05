@@ -4,3 +4,4 @@ dao/target/
 service/target/
 controller/target/
 coreserver/target/
+mongo6.0/data/
