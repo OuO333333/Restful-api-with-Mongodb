@@ -18,11 +18,11 @@ public class GlobalExceptionHandler {
         return map;
     }
 
-    // @ExceptionHandler(ItemNotExistsException.class)
-    // @ResponseBody
-    // public Map<String, Object> specificException(ItemNotExistsException e) {
-    //     Map<String, Object> map = new HashMap<String, Object>();
-    //     map.put("spcific message", e.getMessage());
-    //     return map;
-    // }
+    @ExceptionHandler(ItemNotExistsException.class)
+    @ResponseBody
+    public Map<String, Object> specificException(ItemNotExistsException e) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("spcific message", e.getMessage());
+        return map;
+    }
 }
